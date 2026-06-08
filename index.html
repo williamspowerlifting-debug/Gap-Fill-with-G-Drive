@@ -12,40 +12,20 @@
 </script>
 
 <style>
-body{
-  font-family:Inter,system-ui,sans-serif;
-  background:#f5f6f8;margin:0;padding:40px 20px;color:#111;
-}
+body{font-family:Inter,system-ui,sans-serif;background:#f5f6f8;margin:0;padding:40px 20px;color:#111;}
 .container{max-width:780px;margin:auto;}
 h1{font-size:30px;margin-bottom:6px;}
 h2{font-size:20px;margin-top:0;color:#1f2937;}
 .sub{color:#666;margin-bottom:24px;}
-
-.card{
-  background:white;border-radius:18px;padding:22px;
-  margin-bottom:18px;box-shadow:0 10px 25px rgba(0,0,0,0.05);
-}
-
-.dropzone{
-  border:2px dashed #d0d5dd;border-radius:14px;padding:40px;
-  text-align:center;cursor:pointer;transition:all 0.2s;
-}
+.card{background:white;border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 10px 25px rgba(0,0,0,0.05);}
+.dropzone{border:2px dashed #d0d5dd;border-radius:14px;padding:40px;text-align:center;cursor:pointer;transition:all 0.2s;}
 .dropzone:hover, .dropzone.dragover{border-color:#4f46e5;background:#fafafa;}
 .dropzone strong{display:block;margin-bottom:6px;font-size:16px;}
 .dropzone .hint{color:#888;font-size:13px;margin-top:4px;}
-
 input[type="file"]{display:none;}
-input[type="text"], select{
-  width:100%;margin-top:8px;padding:12px;border-radius:10px;
-  border:1px solid #e5e7eb;font-size:14px;box-sizing:border-box;
-}
+input[type="text"], select{width:100%;margin-top:8px;padding:12px;border-radius:10px;border:1px solid #e5e7eb;font-size:14px;box-sizing:border-box;}
 label{font-weight:600;font-size:14px;color:#374151;}
-
-button{
-  padding:12px 18px;border-radius:12px;border:none;
-  background:#111;color:white;font-size:15px;cursor:pointer;
-  margin:4px 0;transition:opacity 0.2s;
-}
+button{padding:12px 18px;border-radius:12px;border:none;background:#111;color:white;font-size:15px;cursor:pointer;margin:4px 0;transition:opacity 0.2s;}
 button:hover{opacity:0.9;}
 button:disabled{background:#999;cursor:not-allowed;}
 button.secondary{background:#e5e7eb;color:#1f2937;}
@@ -54,197 +34,52 @@ button.success{background:#10b981;}
 button.danger{background:#ef4444;}
 button.full{width:100%;padding:15px;font-size:16px;}
 button.big{padding:16px 24px;font-size:17px;font-weight:600;}
-
 .status{margin-top:10px;font-size:14px;color:#555;}
 .status.success{color:#065f46;}
 .status.error{color:#991b1b;}
-
-.progress-wrap{
-  background:#e5e7eb;border-radius:8px;overflow:hidden;
-  margin-top:10px;height:22px;display:none;
-}
-.progress-bar{
-  background:linear-gradient(90deg,#4f46e5,#10b981);height:100%;
-  width:0%;transition:width 0.2s;color:white;text-align:center;
-  font-size:12px;line-height:22px;
-}
-
-video, iframe.video-player{
-  width:100%;max-width:100%;height:380px;display:block;
-  border-radius:12px;border:none;background:#000;
-}
-
-/* Transcript editor */
-.transcript-box{
-  background:#fff;border:1px solid #e5e7eb;border-radius:12px;
-  padding:20px 24px;font-size:17px;line-height:1.9;
-  max-height:480px;overflow-y:auto;
-  user-select:none;
-  -webkit-user-select:none;
-}
-.transcript-box.edit-mode{
-  border:2px solid #4f46e5;
-  user-select:text;
-  -webkit-user-select:text;
-  cursor:text;
-}
-.transcript-word{
-  display:inline-block;padding:2px 6px;margin:1px;
-  border-radius:4px;cursor:pointer;
-  transition:background 0.15s, transform 0.1s;
-}
+.progress-wrap{background:#e5e7eb;border-radius:8px;overflow:hidden;margin-top:10px;height:22px;display:none;}
+.progress-bar{background:linear-gradient(90deg,#4f46e5,#10b981);height:100%;width:0%;transition:width 0.2s;color:white;text-align:center;font-size:12px;line-height:22px;}
+video, iframe.video-player{width:100%;max-width:100%;height:380px;display:block;border-radius:12px;border:none;background:#000;}
+.transcript-box{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px 24px;font-size:17px;line-height:1.9;max-height:480px;overflow-y:auto;user-select:none;-webkit-user-select:none;}
+.transcript-box.edit-mode{border:2px solid #4f46e5;user-select:text;-webkit-user-select:text;cursor:text;}
+.transcript-word{display:inline-block;padding:2px 6px;margin:1px;border-radius:4px;cursor:pointer;transition:background 0.15s, transform 0.1s;}
 .transcript-word:hover{background:#fef3c7;}
 .transcript-word:active{transform:scale(0.95);}
-.transcript-word.gap{
-  background:#fde68a;color:#78350f;font-weight:600;
-  padding:2px 8px;
-}
+.transcript-word.gap{background:#fde68a;color:#78350f;font-weight:600;padding:2px 8px;}
 .transcript-word.gap:hover{background:#fbbf24;}
-.transcript-sentence{
-  margin-bottom:6px;padding:4px 0;
-}
-.transcript-help{
-  background:#eff6ff;border-left:4px solid #3b82f6;
-  padding:10px 14px;border-radius:6px;margin-bottom:12px;font-size:14px;color:#1e40af;
-}
-
-/* Inline edit mode */
-.transcript-edit-header{
-  display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;
-  padding-bottom:10px;border-bottom:1px solid #e5e7eb;
-}
+.transcript-sentence{margin-bottom:6px;padding:4px 0;}
+.transcript-help{background:#eff6ff;border-left:4px solid #3b82f6;padding:10px 14px;border-radius:6px;margin-bottom:12px;font-size:14px;color:#1e40af;}
+.transcript-edit-header{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;padding-bottom:10px;border-bottom:1px solid #e5e7eb;}
 .sentence-edit-row{margin-bottom:6px;}
-.sentence-edit-textarea{
-  width:100%;min-height:38px;padding:8px 10px;
-  border:1px solid #d1d5db;border-radius:8px;
-  font-family:inherit;font-size:15px;box-sizing:border-box;
-  line-height:1.6;resize:none;overflow:hidden;
-  transition:border-color 0.2s, box-shadow 0.2s;
-}
-.sentence-edit-textarea:focus{
-  border-color:#4f46e5;outline:none;
-  box-shadow:0 0 0 3px rgba(79,70,229,0.12);
-}
-
-/* Settings row */
-.level-row{
-  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-  margin-bottom:14px;
-}
+.sentence-edit-textarea{width:100%;min-height:38px;padding:8px 10px;border:1px solid #d1d5db;border-radius:8px;font-family:inherit;font-size:15px;box-sizing:border-box;line-height:1.6;resize:none;overflow:hidden;transition:border-color 0.2s, box-shadow 0.2s;}
+.sentence-edit-textarea:focus{border-color:#4f46e5;outline:none;box-shadow:0 0 0 3px rgba(79,70,229,0.12);}
+.level-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px;}
 .level-row label{margin:0;}
 .level-row select{width:auto;min-width:140px;margin:0;}
-
-/* Help FAB */
-.help-fab{
-  position:fixed;bottom:20px;right:20px;
-  background:#4f46e5;color:white;border:none;
-  width:54px;height:54px;border-radius:50%;
-  font-size:22px;cursor:pointer;
-  box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:9998;
-}
-.help-overlay{
-  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0.5);z-index:9999;
-  justify-content:center;align-items:center;padding:20px;box-sizing:border-box;
-}
+.help-fab{position:fixed;bottom:20px;right:20px;background:#4f46e5;color:white;border:none;width:54px;height:54px;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:9998;}
+.help-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;padding:20px;box-sizing:border-box;}
 .help-overlay.show{display:flex;}
-.help-modal{
-  background:white;border-radius:14px;max-width:700px;width:100%;
-  max-height:90vh;overflow-y:auto;padding:24px;
-}
+.help-modal{background:white;border-radius:14px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;padding:24px;}
 .help-modal h2{margin-top:0;color:#4f46e5;}
 .help-modal h3{color:#1f2937;border-bottom:2px solid #e5e7eb;padding-bottom:6px;margin-top:20px;}
 .help-modal code{background:#f3f4f6;padding:2px 6px;border-radius:4px;font-size:13px;}
 .help-close{background:#ef4444;color:white;border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;float:right;}
-
-/* Student view styles */
 .student-card{padding:24px;}
-.sentence-display{
-  font-size:22px;
-  line-height:1.4;
-  text-align:left;
-  padding:24px;
-  background:#f9fafb;
-  border-radius:14px;
-  min-height:80px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  align-items:center;
-}
-.gap-input{
-  display:inline-block;
-  width:120px;
-  height:32px;
-  border:none;
-  border-bottom:2px solid #4f46e5;
-  font-size:18px;
-  text-align:center;
-  outline:none;
-  background:white;
-  margin:0 2px;
-  vertical-align:baseline;
-  font-family:inherit;
-}
+.sentence-display{font-size:22px;line-height:1.4;text-align:left;padding:24px;background:#f9fafb;border-radius:14px;min-height:80px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.gap-input{display:inline-block;width:120px;height:32px;border:none;border-bottom:2px solid #4f46e5;font-size:18px;text-align:center;outline:none;background:white;margin:0 2px;vertical-align:baseline;font-family:inherit;}
 .gap-input:focus{border-bottom-color:#10b981;}
 .gap-input.correct{border-bottom-color:#10b981;background:#ecfdf5;color:#065f46;}
 .gap-input.incorrect{border-bottom-color:#ef4444;background:#fef2f2;color:#991b1b;}
-
-/* Answer feedback elements */
-.feedback-correct{
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
-  padding:4px 12px;
-  background:#ecfdf5;
-  color:#065f46;
-  border:2px solid #10b981;
-  border-radius:8px;
-  font-weight:700;
-  font-size:18px;
-}
-.feedback-incorrect{
-  display:inline-flex;
-  flex-direction:column;
-  align-items:center;
-  gap:2px;
-}
-.feedback-correct-ans{
-  font-size:13px;
-  color:#065f46;
-  font-weight:700;
-  background:#ecfdf5;
-  padding:2px 8px;
-  border-radius:4px;
-  border:1px solid #10b981;
-  white-space:nowrap;
-}
-.feedback-wrong-ans{
-  font-size:16px;
-  color:#991b1b;
-  font-weight:600;
-  background:#fef2f2;
-  padding:3px 10px;
-  border-radius:6px;
-  border:2px solid #ef4444;
-  text-decoration:line-through;
-  white-space:nowrap;
-}
-
-.progress-dots{
-  display:flex;justify-content:center;gap:6px;margin:16px 0;flex-wrap:wrap;
-}
-.progress-dot{
-  width:10px;height:10px;border-radius:50%;background:#d1d5db;
-}
+.feedback-correct{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;background:#ecfdf5;color:#065f46;border:2px solid #10b981;border-radius:8px;font-weight:700;font-size:18px;}
+.feedback-incorrect{display:inline-flex;flex-direction:column;align-items:center;gap:2px;}
+.feedback-correct-ans{font-size:13px;color:#065f46;font-weight:700;background:#ecfdf5;padding:2px 8px;border-radius:4px;border:1px solid #10b981;white-space:nowrap;}
+.feedback-wrong-ans{font-size:16px;color:#991b1b;font-weight:600;background:#fef2f2;padding:3px 10px;border-radius:6px;border:2px solid #ef4444;text-decoration:line-through;white-space:nowrap;}
+.progress-dots{display:flex;justify-content:center;gap:6px;margin:16px 0;flex-wrap:wrap;}
+.progress-dot{width:10px;height:10px;border-radius:50%;background:#d1d5db;}
 .progress-dot.done{background:#10b981;}
 .progress-dot.current{background:#4f46e5;transform:scale(1.4);}
-
-.score-card{
-  text-align:center;padding:32px;
-}
+.score-card{text-align:center;padding:32px;}
 .score-big{font-size:48px;font-weight:700;color:#4f46e5;margin:12px 0;}
-
 @media (max-width:768px){
   body{padding:14px;}
   .card{padding:16px;}
@@ -263,10 +98,8 @@ video, iframe.video-player{
   <h1>🎧 Create an Exercise</h1>
   <div class="sub">Upload a video. We'll do the rest.</div>
 
-  <!-- Step 1: Video Source -->
   <div class="card" id="step1Card">
     <h2>1. Add your video</h2>
-
     <div class="dropzone" id="dropzone">
       <strong>Click or drag a video here</strong>
       <div class="hint">MP4, MOV, MKV, WEBM, AVI</div>
@@ -295,52 +128,36 @@ video, iframe.video-player{
     <div class="status" id="uploadStatus"></div>
   </div>
 
-  <!-- Step 2: Video Player -->
   <div class="card" id="step2Card" style="display:none;">
     <h2>2. Your video</h2>
     <div id="videoBox"></div>
     <div class="status" id="transcribeStatus"></div>
   </div>
 
-  <!-- Step 3: Generate Gaps -->
-<div class="card" id="step3Card" style="display:none;">
-  <h2>3. Generate Gaps</h2>
-
-  <div class="level-row">
-    <label for="levelSelect">Student level:</label>
-    <select id="levelSelect">
-      <option value="A1">A1 — Beginner</option>
-      <option value="A2">A2 — Elementary</option>
-      <option value="B1" selected>B1 — Intermediate</option>
-      <option value="B2">B2 — Upper Intermediate</option>
-      <option value="C1">C1 — Advanced</option>
-    </select>
+  <div class="card" id="step3Card" style="display:none;">
+    <h2>3. Generate Gaps</h2>
+    <div class="level-row">
+      <label for="levelSelect">Student level:</label>
+      <select id="levelSelect">
+        <option value="A1">A1 — Beginner</option>
+        <option value="A2">A2 — Elementary</option>
+        <option value="B1" selected>B1 — Intermediate</option>
+        <option value="B2">B2 — Upper Intermediate</option>
+        <option value="C1">C1 — Advanced</option>
+      </select>
+    </div>
+    <button class="success big full" onclick="makeItHappen()" id="makeBtn">✨ Generate Gaps</button>
   </div>
 
-  <button class="success big full" onclick="makeItHappen()" id="makeBtn">
-    ✨ Generate Gaps
-  </button>
-</div>
-
-  <!-- Step 4: Edit Text -->
-<div class="card" id="step4Card" style="display:none;">
-  <h2>4. Edit Text</h2>
-
-  <div class="transcript-help">
-    💡 <b>Tap or click any word</b> to mark it as a gap. Tap a yellow word to remove the gap.
+  <div class="card" id="step4Card" style="display:none;">
+    <h2>4. Edit Text</h2>
+    <div class="transcript-help">
+      💡 <b>Tap or click any word</b> to mark it as a gap. Tap a yellow word to remove the gap.
+    </div>
+    <button class="secondary" onclick="toggleEditMode()" id="editModeBtn" style="margin-bottom:12px;">✏️ Edit Text</button>
+    <div class="transcript-box" id="transcriptBox"></div>
   </div>
 
-  <button class="secondary"
-          onclick="toggleEditMode()"
-          id="editModeBtn"
-          style="margin-bottom:12px;">
-    ✏️ Edit Text
-  </button>
-
-  <div class="transcript-box" id="transcriptBox"></div>
-</div>
-
-  <!-- Step 5: Final Actions -->
   <div class="card" id="step5Card" style="display:none;">
     <h2>5. Share</h2>
     <button class="primary-blue full" onclick="previewExercise()">👀 Preview</button>
@@ -349,7 +166,6 @@ video, iframe.video-player{
   </div>
 </div>
 
-<!-- Help button -->
 <button class="help-fab" onclick="document.getElementById('helpOverlay').classList.add('show')" title="Help">❓</button>
 
 <div class="help-overlay" id="helpOverlay" onclick="if(event.target===this)this.classList.remove('show')">
@@ -357,43 +173,28 @@ video, iframe.video-player{
     <button class="help-close" onclick="document.getElementById('helpOverlay').classList.remove('show')">×</button>
     <h2>📖 How to Use</h2>
     <p>Create a listening exercise in under 2 minutes.</p>
-
     <h3>1. Upload a video</h3>
     <p>Three ways to add your video:</p>
     <ul>
       <li><b>Drag &amp; drop or click</b> — upload a local file (MP4, MOV, MKV, WEBM, AVI)</li>
       <li><b>Paste a direct .mp4 link</b> — any publicly accessible video URL</li>
-      <li><b>Google Drive link</b> — paste a Drive share link. The file must be shared as <em>"Anyone with the link can view"</em>. Import happens server-side and may take 1–3 minutes for large files.</li>
+      <li><b>Google Drive link</b> — paste a Drive share link shared as <em>"Anyone with the link can view"</em>.</li>
     </ul>
-
     <h3>2. Wait for transcript</h3>
     <p>The transcript appears automatically — no button to click.</p>
-
     <h3>3. Edit gaps</h3>
     <ul>
       <li><b>Click any word</b> to make it a gap (turns yellow).</li>
       <li><b>Click a yellow word</b> to remove the gap.</li>
-      <li><b>"✏️ Edit Text"</b> button — click directly in the transcript box to fix mistakes. Your gaps are preserved.</li>
+      <li><b>"✏️ Edit Text"</b> — click directly in the transcript box to fix mistakes. Your gaps are preserved.</li>
     </ul>
-
-    <h3>4. Click "Make it happen"</h3>
+    <h3>4. Generate Gaps</h3>
     <p>AI fills in extra gaps based on the level you choose. Your manual selections are kept.</p>
-
     <h3>5. Share with students</h3>
     <ul>
       <li><b>Preview</b> — See what students will see.</li>
       <li><b>Student Link</b> — Copy and send. No signup needed.</li>
     </ul>
-
-    <h3>How students use it</h3>
-    <ol>
-      <li>The video plays the first sentence automatically.</li>
-      <li>They type the missing words — they can change their answers as many times as needed.</li>
-      <li>They can replay each sentence as many times as they want.</li>
-      <li>When ready, they click <b>✅ Submit</b> — green ✓ for correct, red ✗ for wrong (with the correct answer shown).</li>
-      <li>The next sentence loads automatically after 6 seconds, or press <b>Next</b> to skip ahead immediately.</li>
-      <li>At the end, they see their score.</li>
-    </ol>
   </div>
 </div>
 
@@ -403,7 +204,6 @@ video, iframe.video-player{
 // ============================================================
 const WORKER = window.WORKER_URL;
 
-// Video state
 let videoMode = null;
 let bunnyGuid = null;
 let bunnyDirectUrl = null;
@@ -411,7 +211,6 @@ let bunnyEmbedUrl = null;
 let externalVideoUrl = null;
 let builderPlayer = null;
 
-// Transcript state
 let sentences = [];
 let editModeActive = false;
 
@@ -479,13 +278,12 @@ async function handleFileUpload(file) {
     });
 
     videoMode = "bunny";
-
     progressBar.style.width = "100%";
     progressBar.innerText = "Done";
     status.className = "status success";
     status.innerText = "✅ Uploaded! Processing video & transcribing...";
 
-    showVideoPlayerProcessing(created.libraryId);
+    showVideoPlayerProcessing();
     revealStep("step2Card");
 
     await waitForBunnyReady();
@@ -499,8 +297,7 @@ async function handleFileUpload(file) {
   }
 }
 
-// Poll the worker's /bunny-status endpoint, which reports REAL encode status
-// and returns the confirmed playable cdnUrl.
+// Poll the worker's /bunny-status — it returns the confirmed playable cdnUrl.
 async function waitForBunnyReady() {
   const status = document.getElementById("transcribeStatus");
   status.className = "status";
@@ -510,7 +307,7 @@ async function waitForBunnyReady() {
     try {
       const res = await fetch(WORKER + "/bunny-status?guid=" + bunnyGuid);
       const data = await res.json();
-      if (data.failed) throw new Error("Bunny encoding failed");
+      if (data.failed) throw new Error("Bunny encoding failed. Check that MP4 Fallback is enabled in your Bunny Stream library.");
       if (data.done && data.cdnUrl) {
         bunnyDirectUrl = data.cdnUrl;
         const box = document.getElementById("videoBox");
@@ -521,7 +318,7 @@ async function waitForBunnyReady() {
       }
       status.innerText = "⏳ Video processing... (" + (data.encodeProgress || 0) + "%)";
     } catch (e) {
-      if (e.message === "Bunny encoding failed") throw e;
+      if (e.message && e.message.indexOf("encoding failed") >= 0) throw e;
     }
   }
   throw new Error("Video took too long to process");
@@ -572,10 +369,7 @@ async function useGoogleDriveLink() {
 
   let fakePct = 30;
   const fakeTimer = setInterval(() => {
-    if (fakePct < 85) {
-      fakePct += 3;
-      progressBar.style.width = fakePct + "%";
-    }
+    if (fakePct < 85) { fakePct += 3; progressBar.style.width = fakePct + "%"; }
   }, 2000);
 
   try {
@@ -602,7 +396,7 @@ async function useGoogleDriveLink() {
     status.className = "status success";
     status.innerText = "✅ Imported from Google Drive! Processing & transcribing…";
 
-    showVideoPlayerProcessing(data.libraryId);
+    showVideoPlayerProcessing();
     revealStep("step2Card");
 
     await waitForBunnyReady();
@@ -618,36 +412,28 @@ async function useGoogleDriveLink() {
   }
 }
 
-// Placeholder player while Bunny processes (replaced once ready).
-function showVideoPlayerProcessing(libraryId) {
+function showVideoPlayerProcessing() {
   const box = document.getElementById("videoBox");
-  box.innerHTML = '<div style="height:380px;display:flex;align-items:center;justify-content:center;' +
-    'background:#000;color:#fff;border-radius:12px;">⏳ Video processing…</div>';
+  box.innerHTML = '<div style="height:380px;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;border-radius:12px;">⏳ Video processing…</div>';
 }
 
 function showVideoPlayer() {
   const box = document.getElementById("videoBox");
   if (videoMode === "mp4") {
-    box.innerHTML = '<video id="builderPlayer" class="video-player" controls><source src="' +
-      escapeAttr(externalVideoUrl) + '"></video>';
+    box.innerHTML = '<video id="builderPlayer" class="video-player" controls><source src="' + escapeAttr(externalVideoUrl) + '"></video>';
     builderPlayer = document.getElementById("builderPlayer");
   } else if (videoMode === "bunny" && bunnyEmbedUrl) {
-    box.innerHTML = '<iframe id="builderPlayer" class="video-player" src="' + bunnyEmbedUrl +
-      '?autoplay=false" allowfullscreen allow="autoplay;encrypted-media"></iframe>';
+    box.innerHTML = '<iframe id="builderPlayer" class="video-player" src="' + bunnyEmbedUrl + '?autoplay=false" allowfullscreen allow="autoplay;encrypted-media"></iframe>';
   }
 }
 
-function revealStep(id) {
-  document.getElementById(id).style.display = "block";
-}
+function revealStep(id) { document.getElementById(id).style.display = "block"; }
 
 function escapeAttr(s) {
   return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
-
 function escapeHtml(s) { return escapeAttr(s); }
-</script>
-<script>
+
 // ============================================================
 // 📝 AUTO-TRANSCRIBE
 // ============================================================
@@ -731,13 +517,9 @@ function splitIntoSentences(text) {
   return out;
 }
 
-// ============================================================
-// 🔀 GROUP SENTENCES
-// ============================================================
 function groupSentencesForStudent(rawSentences) {
   const groups = [];
   let pending = [];
-
   const SHORT_SENTENCE_WORDS = 3;
   const LONG_SENTENCE_WORDS = 8;
 
@@ -745,69 +527,41 @@ function groupSentencesForStudent(rawSentences) {
     if (!pending.length) return;
     const allWords = [];
     pending.forEach(p => p.words.forEach(w => allWords.push(w)));
-    groups.push({
-      words: allWords,
-      startTime: pending[0].startTime,
-      endTime: pending[pending.length - 1].endTime
-    });
+    groups.push({ words: allWords, startTime: pending[0].startTime, endTime: pending[pending.length - 1].endTime });
     pending = [];
   }
 
   for (let i = 0; i < rawSentences.length; i++) {
     const s = rawSentences[i];
     const wordCount = s.words.length;
-
     const isShort = wordCount <= SHORT_SENTENCE_WORDS;
     const isLong = wordCount >= LONG_SENTENCE_WORDS;
 
-    if (isShort) {
-      pending.push(s);
-      continue;
-    }
+    if (isShort) { pending.push(s); continue; }
 
     if (isLong) {
       flushPending();
-      groups.push({
-        words: [...s.words],
-        startTime: s.startTime,
-        endTime: s.endTime
-      });
+      groups.push({ words: [...s.words], startTime: s.startTime, endTime: s.endTime });
       continue;
     }
 
-    // Medium
     if (pending.length > 0) {
       const allWords = [];
       pending.forEach(p => p.words.forEach(w => allWords.push(w)));
       s.words.forEach(w => allWords.push(w));
-      groups.push({
-        words: allWords,
-        startTime: pending[0].startTime,
-        endTime: s.endTime
-      });
+      groups.push({ words: allWords, startTime: pending[0].startTime, endTime: s.endTime });
       pending = [];
     } else {
-      groups.push({
-        words: [...s.words],
-        startTime: s.startTime,
-        endTime: s.endTime
-      });
+      groups.push({ words: [...s.words], startTime: s.startTime, endTime: s.endTime });
     }
   }
-
   flushPending();
 
-  // FINAL PASS: merge no-gap groups into the next gap-bearing group
   const cleanedGroups = [];
   for (let i = 0; i < groups.length; i++) {
     const current = groups[i];
     const hasGap = current.words.some(w => w.isGap);
-
-    if (hasGap) {
-      cleanedGroups.push(current);
-      continue;
-    }
-
+    if (hasGap) { cleanedGroups.push(current); continue; }
     if (i < groups.length - 1) {
       const next = groups[i + 1];
       next.words = [...current.words, ...next.words];
@@ -818,12 +572,10 @@ function groupSentencesForStudent(rawSentences) {
         prev.words.push(...current.words);
         prev.endTime = current.endTime;
       } else {
-        // No gaps anywhere — keep the group so the lesson isn't empty
         cleanedGroups.push(current);
       }
     }
   }
-
   return cleanedGroups;
 }
 
@@ -839,7 +591,6 @@ function buildSentencesFromTranscript(data) {
   }
 
   const rawSentences = splitIntoSentences(text);
-
   let wordIdx = 0;
   sentences = rawSentences.map(rawText => {
     const tokens = rawText.split(/\s+/).filter(Boolean);
@@ -849,7 +600,6 @@ function buildSentencesFromTranscript(data) {
     tokens.forEach(token => {
       const cleanToken = token.toLowerCase().replace(/[^\w']/g, "");
       let matchedTime = null;
-
       for (let j = wordIdx; j < Math.min(wordIdx + 5, words.length); j++) {
         const w = words[j];
         const cleanW = (w.text || "").toLowerCase().replace(/[^\w']/g, "");
@@ -861,28 +611,15 @@ function buildSentencesFromTranscript(data) {
           break;
         }
       }
-
-      sentenceWords.push({
-        text: token,
-        time: matchedTime !== null ? matchedTime : (sentEnd || 0),
-        isGap: false
-      });
+      sentenceWords.push({ text: token, time: matchedTime !== null ? matchedTime : (sentEnd || 0), isGap: false });
     });
 
-    return {
-      words: sentenceWords,
-      startTime: sentStart || 0,
-      endTime: sentEnd || (sentStart || 0) + 5,
-      originalText: rawText
-    };
+    return { words: sentenceWords, startTime: sentStart || 0, endTime: sentEnd || (sentStart || 0) + 5, originalText: rawText };
   });
 
   sentences.forEach((s, i) => {
-    if (i < sentences.length - 1) {
-      s.endTime = Math.max(s.endTime, sentences[i + 1].startTime - 0.1);
-    } else {
-      s.endTime = s.endTime + 1.5;
-    }
+    if (i < sentences.length - 1) s.endTime = Math.max(s.endTime, sentences[i + 1].startTime - 0.1);
+    else s.endTime = s.endTime + 1.5;
   });
 
   status.className = "status success";
@@ -900,7 +637,6 @@ function buildSentencesFromTranscript(data) {
 function toggleEditMode() {
   editModeActive = !editModeActive;
   const btn = document.getElementById("editModeBtn");
-
   if (editModeActive) {
     btn.innerText = "❌ Cancel Edit";
     btn.className = "danger";
@@ -913,30 +649,16 @@ function toggleEditMode() {
 function renderTranscriptEditMode() {
   const box = document.getElementById("transcriptBox");
   box.classList.add("edit-mode");
-
   let html = "";
   sentences.forEach((s, si) => {
-    html +=
-      '<div class="sentence-edit-row">' +
-        '<textarea class="sentence-edit-textarea" data-sent="' + si + '" ' +
-          'oninput="autoResizeTextarea(this)">' +
-          escapeHtml(s.originalText) +
-        '</textarea>' +
-      '</div>';
+    html += '<div class="sentence-edit-row"><textarea class="sentence-edit-textarea" data-sent="' + si + '" oninput="autoResizeTextarea(this)">' + escapeHtml(s.originalText) + '</textarea></div>';
   });
-
-  html +=
-    '<div class="transcript-edit-header" style="margin-top:18px;border-top:1px solid #e5e7eb;padding-top:14px;border-bottom:none;">' +
-      '<button class="success" onclick="applyTranscriptEdit()">✅ Apply Changes</button>' +
-      '<button class="danger" onclick="cancelTranscriptEdit()">❌ Cancel</button>' +
-      '<span style="font-size:13px;color:#6b7280;align-self:center;">Edit each sentence directly. Your gaps will be preserved.</span>' +
-    '</div>';
-
+  html += '<div class="transcript-edit-header" style="margin-top:18px;border-top:1px solid #e5e7eb;padding-top:14px;border-bottom:none;">' +
+    '<button class="success" onclick="applyTranscriptEdit()">✅ Apply Changes</button>' +
+    '<button class="danger" onclick="cancelTranscriptEdit()">❌ Cancel</button>' +
+    '<span style="font-size:13px;color:#6b7280;align-self:center;">Edit each sentence directly. Your gaps will be preserved.</span></div>';
   box.innerHTML = html;
-
-  setTimeout(() => {
-    box.querySelectorAll(".sentence-edit-textarea").forEach(ta => autoResizeTextarea(ta));
-  }, 0);
+  setTimeout(() => { box.querySelectorAll(".sentence-edit-textarea").forEach(ta => autoResizeTextarea(ta)); }, 0);
 }
 
 function autoResizeTextarea(ta) {
@@ -948,16 +670,8 @@ function applyTranscriptEdit() {
   const box = document.getElementById("transcriptBox");
   const textareas = box.querySelectorAll(".sentence-edit-textarea");
   if (!textareas.length) return;
-
-  const newText = Array.from(textareas)
-    .map(ta => ta.value.trim())
-    .filter(Boolean)
-    .join(" ");
-
-  if (!newText) {
-    alert("Transcript cannot be empty.");
-    return;
-  }
+  const newText = Array.from(textareas).map(ta => ta.value.trim()).filter(Boolean).join(" ");
+  if (!newText) { alert("Transcript cannot be empty."); return; }
 
   const existingGapCounts = {};
   sentences.forEach(sentence => {
@@ -971,33 +685,22 @@ function applyTranscriptEdit() {
 
   const rawSentences = splitIntoSentences(newText);
   const oldSentences = sentences;
-
   sentences = rawSentences.map((rawText, idx) => {
     const tokens = rawText.split(/\s+/).filter(Boolean);
     const sentenceWords = tokens.map(token => {
       const clean = token.toLowerCase().replace(/[^\w']/g, "");
       let shouldBeGap = false;
-      if (clean && existingGapCounts[clean] && existingGapCounts[clean] > 0) {
-        shouldBeGap = true;
-        existingGapCounts[clean]--;
-      }
+      if (clean && existingGapCounts[clean] && existingGapCounts[clean] > 0) { shouldBeGap = true; existingGapCounts[clean]--; }
       return { text: token, time: 0, isGap: shouldBeGap };
     });
-
     const oldSent = oldSentences[idx];
-    return {
-      words: sentenceWords,
-      startTime: oldSent ? oldSent.startTime : (idx * 5),
-      endTime: oldSent ? oldSent.endTime : ((idx + 1) * 5),
-      originalText: rawText
-    };
+    return { words: sentenceWords, startTime: oldSent ? oldSent.startTime : (idx * 5), endTime: oldSent ? oldSent.endTime : ((idx + 1) * 5), originalText: rawText };
   });
 
   editModeActive = false;
   const btn = document.getElementById("editModeBtn");
   btn.innerText = "✏️ Edit Text";
   btn.className = "secondary";
-
   box.classList.remove("edit-mode");
   renderTranscript();
 }
@@ -1005,10 +708,7 @@ function applyTranscriptEdit() {
 function cancelTranscriptEdit() {
   editModeActive = false;
   const btn = document.getElementById("editModeBtn");
-  if (btn) {
-    btn.innerText = "✏️ Edit Text";
-    btn.className = "secondary";
-  }
+  if (btn) { btn.innerText = "✏️ Edit Text"; btn.className = "secondary"; }
   const box = document.getElementById("transcriptBox");
   if (box) box.classList.remove("edit-mode");
   renderTranscript();
@@ -1020,12 +720,10 @@ function cancelTranscriptEdit() {
 function renderTranscript() {
   const box = document.getElementById("transcriptBox");
   if (!sentences.length) { box.innerHTML = "<i>No transcript.</i>"; return; }
-
   box.innerHTML = sentences.map((s, si) => {
     const wordsHtml = s.words.map((w, wi) => {
       const cls = "transcript-word" + (w.isGap ? " gap" : "");
-      return '<span class="' + cls + '" data-sent="' + si + '" data-word="' + wi + '">' +
-        escapeHtml(w.text) + '</span>';
+      return '<span class="' + cls + '" data-sent="' + si + '" data-word="' + wi + '">' + escapeHtml(w.text) + '</span>';
     }).join(" ");
     return '<div class="transcript-sentence">' + wordsHtml + '</div>';
   }).join("");
@@ -1035,17 +733,13 @@ document.addEventListener("click", function (e) {
   if (editModeActive) return;
   const target = e.target;
   if (!target.classList || !target.classList.contains("transcript-word")) return;
-
   const sentIdx = parseInt(target.getAttribute("data-sent"));
   const wordIdx = parseInt(target.getAttribute("data-word"));
   if (isNaN(sentIdx) || isNaN(wordIdx)) return;
-
   const word = sentences[sentIdx] && sentences[sentIdx].words[wordIdx];
   if (!word) return;
-
   const clean = word.text.replace(/[^\w']/g, "");
   if (!clean) return;
-
   word.isGap = !word.isGap;
   target.classList.toggle("gap");
 });
@@ -1055,11 +749,58 @@ document.addEventListener("click", function (e) {
 // ============================================================
 async function makeItHappen() {
   if (!sentences.length) { alert("No transcript yet."); return; }
-
   const level = document.getElementById("levelSelect").value;
   const btn = document.getElementById("makeBtn");
   btn.disabled = true;
   btn.innerText = "⏳ Working magic...";
-
   const transcript = sentences.map(s => s.originalText).join(" ");
 
+  try {
+    const res = await fetch(WORKER + "/generate-gaps", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ transcript, level })
+    });
+    if (!res.ok) {
+      const errBody = await res.text();
+      throw new Error("AI error: " + res.status + " " + errBody);
+    }
+    const data = await res.json();
+    if (!data.sections || !Array.isArray(data.sections)) throw new Error("Invalid AI response");
+    applyAISuggestedGaps(data.sections);
+    document.getElementById("step3Card").scrollIntoView({ behavior: "smooth" });
+  } catch (err) {
+    console.error(err);
+    alert("❌ " + err.message);
+  } finally {
+    btn.innerText = "✨ Generate Gaps";
+    btn.disabled = false;
+  }
+}
+
+function applyAISuggestedGaps(aiSections) {
+  const targets = [];
+  aiSections.forEach(sec => {
+    (sec.answers || []).forEach(a => {
+      const cleaned = (a || "").toLowerCase().replace(/[^\w']/g, "");
+      if (cleaned) targets.push(cleaned);
+    });
+  });
+  targets.forEach(target => {
+    for (const sentence of sentences) {
+      let found = false;
+      for (const word of sentence.words) {
+        const cleanW = word.text.toLowerCase().replace(/[^\w']/g, "");
+        if (cleanW === target && !word.isGap) { word.isGap = true; found = true; break; }
+      }
+      if (found) break;
+    }
+  });
+  renderTranscript();
+}
+
+// ============================================================
+// 📦 BUILD LESSON & SHARE
+// ============================================================
+function buildLesson() {
+  const lessonSentences = sentences.map
