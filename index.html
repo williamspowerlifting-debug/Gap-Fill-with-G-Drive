@@ -278,17 +278,18 @@ video, iframe.video-player{
     <label>Paste a direct video link (.mp4)</label>
     <input type="text" id="videoUrl" placeholder="https://...mp4">
     <button class="primary-blue" onclick="useVideoLink()">Use this link</button>
-       <div style="font-size:12px;color:#888;margin-top:6px;">
+           <div style="font-size:12px;color:#888;margin-top:6px;">
       ⓘ YouTube links can't be auto-transcribed — please upload a video file instead.
     </div>
 
     <div style="margin:16px 0;text-align:center;color:#999;font-size:13px;">— OR —</div>
 
-    <label>📁 Paste a Google Drive link</label>
-    <input type="text" id="driveUrl" placeholder="https://drive.google.com/file/d/...">
-    <button class="primary-blue" onclick="useGoogleDriveLink()" id="driveImportBtn">☁️ Import from Google Drive</button>
+    <label>Paste a direct video link or Google Drive link</label>
+    <input type="text" id="videoUrl" placeholder="https://...mp4  or  https://drive.google.com/file/d/...">
+    <button class="primary-blue" onclick="usePastedLink()" id="pasteImportBtn">🔗 Use this link</button>
     <div style="font-size:12px;color:#888;margin-top:6px;">
-      ⓘ The file must be shared as <b>"Anyone with the link can view"</b>. The video is imported server-side — large files may take 1–3 minutes.
+      ⓘ For Google Drive links, the file must be shared as <b>"Anyone with the link can view"</b>.
+      Large files may take 1–3 minutes to import.
     </div>
 
     <div class="progress-wrap" id="progressWrap"><div class="progress-bar" id="progressBar">0%</div></div>
@@ -526,7 +527,31 @@ async function waitForBunnyReady() {
   }
   throw new Error("Video took too long to process");
 }
+// ============================================================
+// 🔗 SMART LINK ROUTER
+// Detects Drive vs direct MP4 and routes accordingly.
+// ============================================================
+function usePastedLink() {
+  const url = document.getElementById("videoUrl").value.trim();
+  if (!url) { alert("Please paste a video link first."); return; }
 
+  if (url.includes("drive.google.com")) {
+    // Route to Google Drive import
+    // Temporarily mirror the value into driveUrl for useGoogleDriveLink()
+    let driveInput = document.getElementById("driveUrl");
+    if (!driveInput) {
+      driveInput = document.createElement("input");
+      driveInput.id = "driveUrl";
+      driveInput.style.display = "none";
+      document.body.appendChild(driveInput);
+    }
+    driveInput.value = url;
+    useGoogleDriveLink();
+  } else {
+    // Route to direct MP4 link
+    useVideoLink();
+  }
+}
 function useVideoLink() {
   const url = document.getElementById("videoUrl").value.trim();
   if (!url) { alert("Please paste a video link."); return; }
@@ -563,7 +588,7 @@ async function useGoogleDriveLink() {
   const status = document.getElementById("uploadStatus");
   const progressWrap = document.getElementById("progressWrap");
   const progressBar = document.getElementById("progressBar");
-  const btn = document.getElementById("driveImportBtn");
+  const btn = document.getElementById("pasteImportBtn");
 
   status.className = "status";
   status.innerText = "☁️ Importing from Google Drive… (large files may take 1–3 minutes)";
