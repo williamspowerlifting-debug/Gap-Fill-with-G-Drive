@@ -480,9 +480,9 @@ async function handleFileUpload(file) {
     showVideoPlayer();
     revealStep("step2Card");
 
-    await waitForBunnyReady();
     await autoTranscribe();
-
+    await waitForBunnyReady();
+    
   } catch (err) {
     console.error(err);
     status.className = "status error";
