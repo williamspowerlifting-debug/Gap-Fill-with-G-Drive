@@ -479,9 +479,10 @@ async function handleFileUpload(file) {
 
     showVideoPlayer();
     revealStep("step2Card");
-
-    await autoTranscribe();
+    
     await waitForBunnyReady();
+    await autoTranscribe();
+
     
   } catch (err) {
     console.error(err);
