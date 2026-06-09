@@ -495,8 +495,8 @@ async function waitForBunnyReady() {
   const status = document.getElementById("transcribeStatus");
   status.className = "status";
   status.innerText = "⏳ Waiting for video to be ready...";
-  for (let i = 0; i < 60; i++) {
-    await new Promise(r => setTimeout(r, 5000));
+  for (let i = 0; i < 150; i++) {
+    await new Promise(r => setTimeout(r, 2000));
     try {
       const res = await fetch(WORKER + "/bunny-status?guid=" + bunnyGuid);
       const data = await res.json();
@@ -704,8 +704,8 @@ async function autoTranscribe() {
 
 async function pollTranscriptJob(jobId) {
   const status = document.getElementById("transcribeStatus");
-  for (let i = 0; i < 45; i++) {
-    await new Promise(r => setTimeout(r, 4000));
+  for (let i = 0; i < 90; i++) {
+    await new Promise(r => setTimeout(r, 2000));
     try {
       const res = await fetch(WORKER + "/transcribe-status?jobId=" + jobId);
       const data = await res.json();
